@@ -8,11 +8,19 @@ from django.utils import timezone
 from django.utils.translation import pgettext_lazy
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, password=None, is_staff=False,
+    def create_user(self, email, password=None,
                     is_active=True, username='', **extra_fields):
         email = UserManager.normalize_email(email)
-        user = self.model(email=email, is_active=is_active,
-                        is_staff=is_staff, **extra_fields)
+        user = self.model(email=email, is_active=is_active, **extra_fields)
+        if password:
+            user.set_password(password)
+        user.save()
+        return user
+
+    def create_superuser(self, email, password=None,
+                    is_active=True, username='', **extra_fields):
+        email = UserManager.normalize_email(email)
+        user = self.model(email=email, is_active=is_active, **extra_fields)
         if password:
             user.set_password(password)
         user.save()
@@ -24,6 +32,7 @@ class User(PermissionsMixin, AbstractBaseUser):
     user = models.CharField(max_length=50, blank=True)
     rol = models.CharField(max_length=25, blank=True)
     is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now, editable=False)
     USERNAME_FIELD = 'email'
 

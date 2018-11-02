@@ -35,4 +35,3 @@ services:
       - db
       - redis
       - search
-    entrypoint: /entrypoint.sh
