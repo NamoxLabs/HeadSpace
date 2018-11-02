@@ -83,6 +83,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+# configuration and error resolving
+# https://stackoverflow.com/questions/51962032/docker-image-on-django-app-with-postgres-returns-django-db-utils-operationalerro
 
 if os.getenv('DOCKER_CONTAINER'):
     POSTGRES_HOST = 'db'
@@ -95,7 +97,7 @@ DATABASES = {
         'NAME': 'headspace',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
