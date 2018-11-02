@@ -1,0 +1,27 @@
+{
+  "name": "HeadSpace",
+  "description": "A space for free your head and put your ideas on the digital accomplissement tracker",
+  "repository": "https://github.com/mirumee/saleor",
+  "website": "http://getsaleor.com/",
+  "keywords": [
+    "headspace",
+    "idea progress tracker",
+    "pwa",
+    "python",
+    "django"
+  ],
+  "image": "heroku/python",
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "heroku-redis:hobby-dev",
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-python.git"
+    }
+  ],
+  "success_url": "/"
+}
