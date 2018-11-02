@@ -2,9 +2,13 @@ version: '3'
 
 services:
   db:
-    image: postgres:9.5
+    image: postgres
     ports:
       - '127.0.0.1:5432:5432'
+    environment:
+      - POSTGRES_DB=headspace
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
   redis:
     image: redis
     ports:
@@ -20,6 +24,9 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    environment:
+      - SECRET_KEY=rtt4leia4_rbe(t)h1k1o#8jgl-*nyc60fh3nto0zr**hmq=o@
+      - DOCKER_CONTAINER=True
     depends_on:
       - db
       - redis

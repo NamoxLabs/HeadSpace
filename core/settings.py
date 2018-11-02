@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u6=oh%mks$11+z=4mr19@lnh$75i+4ow6x*#of8ar9_%j))-8g'
+#SECRET_KEY = 'u6=oh%mks$11+z=4mr19@lnh$75i+4ow6x*#of8ar9_%j))-8g'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
 
     'core.userprofile',
     'core.space',
+
+    'bulma',
 ]
 
 MIDDLEWARE = [
@@ -81,13 +84,21 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+if os.getenv('DOCKER_CONTAINER'):
+    POSTGRES_HOST = 'db'
+else:
+    POSTGRES_HOST = '127.0.0.1'
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'headspace',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
