@@ -25,7 +25,7 @@ services:
     container_name: mysite_container
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - .:/app
     ports:
       - "8000:8000"
     environment:

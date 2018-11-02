@@ -1,0 +1,48 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[requires]
+python_version = "3.7"
+
+[packages]
+Babel = ">=2.5"
+bleach = "<3.0"
+"boto3" = "*"
+cairosvg = "*"
+Django = ">=2.0.8"
+django-bootstrap4 = ">=0.0.4"
+django-cache-url = ">=1.0.0"
+django-countries = ">=5.2"
+django-filter = ">=2.0"
+django-graphql-jwt = ">=0.1.13"
+django-webpack-loader = ">=0.3.0"
+django-elasticsearch-dsl = ">=0.5.0.<0.6.0"
+faker = ">=0.7.7"
+freezegun = ">=0.3.9"
+graphene-django = ">=2.2"
+Markdown = ">=2.4"
+"psycopg2-binary" = ">=2.7"
+uwsgi = {version = ">=2.0.0", platform_system = "!= 'Windows'"}
+
+
+[dev-packages]
+pytest = "*"
+pytest-django = "*"
+pytest-vcr = "*"
+pytest-mock = "*"
+pytest-xdist = "*"
+coverage = "*"
+pytest-cov = "*"
+codecov = "*"
+tox = "*"
+pycodestyle = "*"
+pydocstyle = "*"
+pylint = "*"
+pylint_celery = "*"
+pylint_django = "*"
+isort = "*"
+yapf = "*"
+django-extensions = "*"
+pylint-plugin-utils = "*"
