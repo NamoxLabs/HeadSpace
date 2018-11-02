@@ -18,7 +18,11 @@ services:
     ports:
       - '127.0.0.1:9200:9200'
   web:
-    build: .
+    image: mysite:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mysite_container
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
@@ -31,3 +35,4 @@ services:
       - db
       - redis
       - search
+    entrypoint: /entrypoint.sh
