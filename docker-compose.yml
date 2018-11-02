@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:9.5
+    expose:
+      - 5432
+  redis:
+    image: redis
+    ports:
+      - '127.0.0.1:6379:6379'
+  #search:
+  #  image: elasticsearch:6.4.0
+  #  ports:
+  #    - '127.0.0.1:9200:9200'
+  web:
+    build: .
+    command: bash -c "python /code/manage.py migrate --noinput && python /code/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=rtt4leia4_rbe(t)h1k1o#8jgl-*nyc60fh3nto0zr**hmq=o@
+    depends_on:
+      - db
+      - redis
+     # - search
