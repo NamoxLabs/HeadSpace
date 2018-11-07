@@ -41,17 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-<<<<<<< HEAD
     #System apps
-    'userprofile',
-    'space',
-    'spacecontent',
-=======
     'core.userprofile',
     'core.space',
-
-    'bulma',
->>>>>>> setup_files
+    'core.spacecontent',
 ]
 
 MIDDLEWARE = [
