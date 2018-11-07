@@ -82,6 +82,12 @@
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.44",
     "@babel/plugin-proposal-decorators": "^7.0.0-beta.44",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
+<<<<<<< HEAD
+=======
+    "@babel/preset-es2015": "^7.0.0-beta.44",
+    "@babel/preset-react": "^7.0.0-beta.44",
+    "@babel/preset-stage-0": "^7.0.0-beta.44",
+>>>>>>> setup_files
     "@playlyfe/gql": "^2.6.0",
     "@storybook/addon-storyshots": "4.0.0-alpha.4",
     "@storybook/react": "4.0.0-alpha.4",
@@ -97,7 +103,10 @@
     "babel-eslint": "^8.2.2",
     "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.0-beta.4",
+<<<<<<< HEAD
     "babel-preset-env": "^1.7.0",
+=======
+>>>>>>> setup_files
     "chai": "^4.1.2",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
@@ -128,16 +137,30 @@
     "tslint-config-prettier": "^1.15.0",
     "webpack": "^4.16.5",
     "webpack-bundle-tracker": "^0.3.0",
+<<<<<<< HEAD
     "webpack-cli": "^3.1.2",
+=======
+    "webpack-cli": "^2.1.5",
+>>>>>>> setup_files
     "webpack-dev-server": "^3.1.5"
   },
   "babel": {
     "presets": [
+<<<<<<< HEAD
       "env"
     ],
     "plugins": [
       "@babel/plugin-proposal-class-properties",
       ["@babel/plugin-proposal-decorators", { "legacy": true }],
+=======
+      "@babel/preset-stage-0",
+      "@babel/preset-es2015",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-decorators",
+>>>>>>> setup_files
       "@babel/plugin-proposal-object-rest-spread"
     ]
   },

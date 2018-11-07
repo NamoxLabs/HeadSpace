@@ -17,7 +17,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u6=oh%mks$11+z=4mr19@lnh$75i+4ow6x*#of8ar9_%j))-8g'
+#SECRET_KEY = 'u6=oh%mks$11+z=4mr19@lnh$75i+4ow6x*#of8ar9_%j))-8g'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,10 +41,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+<<<<<<< HEAD
     #System apps
     'userprofile',
     'space',
     'spacecontent',
+=======
+    'core.userprofile',
+    'core.space',
+
+    'bulma',
+>>>>>>> setup_files
 ]
 
 MIDDLEWARE = [
@@ -79,6 +87,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+# configuration and error resolving
+# https://stackoverflow.com/questions/51962032/docker-image-on-django-app-with-postgres-returns-django-db-utils-operationalerro
+
+if os.getenv('DOCKER_CONTAINER'):
+    POSTGRES_HOST = 'db'
+else:
+    POSTGRES_HOST = '127.0.0.1'
 
 DATABASES = {
     'default': {

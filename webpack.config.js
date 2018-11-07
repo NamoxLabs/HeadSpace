@@ -19,7 +19,11 @@ if (process.env.NODE_ENV === 'production') {
   reactPath = 'node_modules/react/cjs/react.production.min.js';
   reactDomPath = 'node_modules/react-dom/cjs/react-dom.production.min.js';
   output = {
+<<<<<<< HEAD
     path: resolve('static/assets/'),
+=======
+    path: resolve('headspace/static/assets/'),
+>>>>>>> setup_files
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].js',
     publicPath: publicPath
@@ -33,7 +37,11 @@ if (process.env.NODE_ENV === 'production') {
   reactPath = 'node_modules/react/cjs/react.development.js';
   reactDomPath = 'node_modules/react-dom/cjs/react-dom.development.js';
   output = {
+<<<<<<< HEAD
     path: resolve('static/assets/'),
+=======
+    path: resolve('headspace/static/assets/'),
+>>>>>>> setup_files
     filename: '[name].js',
     chunkFilename: '[name].js',
     publicPath: '/static/assets/'
@@ -59,7 +67,14 @@ var providePlugin = new webpack.ProvidePlugin({
 
 var config = {
   entry: {
+<<<<<<< HEAD
     dashboard: './static/dashboard/js/dashboard.js',
+=======
+    dashboard: './headspace/static/dashboard/js/dashboard.js',
+    'dashboard-next': './headspace/static/dashboard-next/index.tsx',
+    document: './headspace/static/dashboard/js/document.js',
+    storefront: './headspace/static/js/storefront.js'
+>>>>>>> setup_files
   },
   output: output,
   module: {
@@ -106,9 +121,15 @@ var config = {
         loader: fileLoaderPath,
         include: [
           resolve('node_modules'),
+<<<<<<< HEAD
           resolve('HeadSpace/static/fonts'),
           resolve('HeadSpace/static/images'),
           resolve('HeadSpace/static/dashboard/images')
+=======
+          resolve('headspace/static/fonts'),
+          resolve('headspace/static/images'),
+          resolve('headspace/static/dashboard/images')
+>>>>>>> setup_files
         ]
       }
     ]
