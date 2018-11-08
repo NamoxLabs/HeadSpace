@@ -59,10 +59,8 @@ var providePlugin = new webpack.ProvidePlugin({
 
 var config = {
   entry: {
-    dashboard: './headspace/static/dashboard/js/dashboard.js',
-    'dashboard-next': './headspace/static/dashboard-next/index.tsx',
-    document: './headspace/static/dashboard/js/document.js',
-    storefront: './headspace/static/js/storefront.js'
+    dashboard: './static/dashboard/js/dashboard.js',
+    'dashboard-next': './static/dashboard-next/index.tsx',
   },
   output: output,
   module: {
