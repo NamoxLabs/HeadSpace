@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
   reactPath = 'node_modules/react/cjs/react.development.js';
   reactDomPath = 'node_modules/react-dom/cjs/react-dom.development.js';
   output = {
-    path: resolve('headspace/static/assets/'),
+    path: resolve('core/static/assets/'),
     filename: '[name].js',
     chunkFilename: '[name].js',
     publicPath: '/static/assets/'
@@ -59,8 +59,8 @@ var providePlugin = new webpack.ProvidePlugin({
 
 var config = {
   entry: {
-    dashboard: './static/dashboard/js/dashboard.js',
-    'dashboard-next': './static/dashboard-next/index.tsx',
+    dashboard: './core/static/dashboard/js/dashboard.js',
+    'dashboard-next': './core/static/dashboard-next/index.tsx',
   },
   output: output,
   module: {

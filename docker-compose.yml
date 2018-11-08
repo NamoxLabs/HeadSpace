@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 services:
   db:
@@ -9,20 +9,26 @@ services:
       - POSTGRES_DB=headspace
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+
   redis:
     image: redis
     ports:
       - '127.0.0.1:6379:6379'
+
   search:
     image: elasticsearch:6.4.0
     ports:
       - '127.0.0.1:9200:9200'
+  
   web:
-    image: mysite:latest
+    image: headspace:latest
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: mysite_container
+      args:
+        STATIC_URL: '/static/'
+    restart: unless-stopped
+    container_name: headspace_container
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app

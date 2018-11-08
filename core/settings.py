@@ -136,5 +136,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_URL = '/static/'
+
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_URL = os.environ.get('STATIC_URL', '/static/')
+STATICFILES_DIRS = [
+    ('assets', os.path.join(PROJECT_ROOT, 'static', 'assets'))
+    #('favicons', os.path.join(PROJECT_ROOT, 'static', 'favicons')),
+    #('images', os.path.join(PROJECT_ROOT, 'static', 'images')),
+    #('dashboard/images', os.path.join(
+        #PROJECT_ROOT, 'static', 'dashboard', 'images'))
+    ]
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder']
