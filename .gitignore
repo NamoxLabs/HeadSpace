@@ -164,6 +164,7 @@ dmypy.json
 node_modules
 .vscode
 .idea
+venv
 # Spyder project settings
 
 # Rope project settings
