@@ -161,7 +161,7 @@ dmypy.json
 # SageMath parsed files
 
 # Environments
-
+node_modules
 # Spyder project settings
 
 # Rope project settings
